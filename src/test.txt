@@ -1,0 +1,7 @@
+const fs = require('fs');
+const path = require('path');
+
+const srcDir = path.join(__dirname);
+fs.readdirSync(srcDir).forEach(file => {
+    console.log(file);
+});

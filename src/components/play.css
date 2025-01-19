@@ -1,0 +1,23 @@
+form {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 600px;
+    margin: 20px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .row {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .col-2 {
+    margin: 5px;
+  }
+  
+  .col-2 input {
+    width: 100%;
+    text-align: center;
+  }
+  
