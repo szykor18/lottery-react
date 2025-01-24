@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { AuthService } from '../services/AuthService';
+import { AuthService } from '../../services/AuthService';
 import './login-register.css';
-
+import Footer from '../footer/Footer';
 
 const Login: React.FC = () => {
   const [username, setUsername] = useState<string>('');
@@ -46,8 +46,20 @@ const Login: React.FC = () => {
             required
           />
         </div>
-        <button type="submit" className="btn btn-primary">Login</button>
-        {errorMessage && <div className="alert alert-danger mt-2">{errorMessage}</div>}
+        <button type="submit" className="btn btn-primary">
+          Login
+        </button>
+        <p className="question">
+          Don't have an account?{' '}
+          <a href="/register" className="link-primary">
+            {' '}
+            Register here
+          </a>
+        </p>
+
+        {errorMessage && (
+          <div className="alert alert-danger mt-2">{errorMessage}</div>
+        )}
       </form>
     </div>
   );

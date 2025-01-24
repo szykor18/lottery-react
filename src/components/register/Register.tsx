@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { AuthService, User } from '../services/AuthService';
-import './login-register.css';
+import { AuthService, User } from '../../services/AuthService';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'; // Import stylów
+import '../login/login-register.css';
 
 const Register: React.FC = () => {
   const [username, setUsername] = useState<string>('');
@@ -13,10 +15,25 @@ const Register: React.FC = () => {
     e.preventDefault();
     const user: User = { username, password };
     try {
+      // Rejestracja użytkownika
       await AuthService.register(user);
-      navigate('/login');
+
+      // Wyświetlenie powiadomienia o sukcesie
+      toast.success('Registration successful! Redirecting...', {
+        autoClose: 3000, // Czas wyświetlania powiadomienia
+        position: 'top-center', // Pozycja powiadomienia
+      });
+
+      // Czekamy 3 sekundy przed przekierowaniem
+      setTimeout(() => {
+        navigate('/main');
+      }, 3000);
     } catch (error: any) {
-      setErrorMessage(error.message || 'Registration failed');
+      // Wyświetlenie powiadomienia o błędzie
+      toast.error(error.message || 'Registration failed', {
+        autoClose: 3000, // Czas wyświetlania powiadomienia
+        position: 'top-center', // Pozycja powiadomienia
+      });
     }
   };
 
@@ -46,9 +63,17 @@ const Register: React.FC = () => {
             required
           />
         </div>
-        <button type="submit" className="btn btn-primary">Register</button>
-        {errorMessage && <div className="alert alert-danger mt-2">{errorMessage}</div>}
+        <button type="submit" className="btn btn-primary">
+          Register
+        </button>
+        <p className="question">
+          Do you have an account?{' '}
+          <a href="/login" className="link-primary">
+            Login here
+          </a>
+        </p>
       </form>
+      <ToastContainer /> {/* Kontener dla toasta */}
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { AuthService } from '../services/AuthService';
+import { AuthService } from '../../services/AuthService';
 import './navbar.css';
 
 const Navbar: React.FC = () => {
@@ -15,8 +15,8 @@ const Navbar: React.FC = () => {
     <header>
       <nav className="navbar navbar-expand-md navbar-dark bg-dark">
         <div>
-          <a className="navbar-brand" href="https://www.szymonkornik.com">
-            Szykor
+          <a className="navbar-brand" href="/main">
+            Lottery
           </a>
         </div>
 
@@ -24,13 +24,19 @@ const Navbar: React.FC = () => {
           {AuthService.isLoggedIn() && (
             <>
               <li>
-                <Link to="/main" className="nav-link">Home</Link>
+                <Link to="/main" className="nav-link">
+                  Home
+                </Link>
               </li>
               <li>
-                <Link to="/play" className="nav-link">Play</Link>
+                <Link to="/play" className="nav-link">
+                  Play
+                </Link>
               </li>
               <li>
-                <Link to="/results" className="nav-link">Results</Link>
+                <Link to="/results" className="nav-link">
+                  Results
+                </Link>
               </li>
             </>
           )}
@@ -40,10 +46,14 @@ const Navbar: React.FC = () => {
           {!AuthService.isLoggedIn() ? (
             <>
               <li>
-                <Link to="/login" className="nav-link">Login</Link>
+                <Link to="/login" className="nav-link">
+                  Login
+                </Link>
               </li>
               <li>
-                <Link to="/register" className="nav-link">Register</Link>
+                <Link to="/register" className="nav-link">
+                  Register
+                </Link>
               </li>
             </>
           ) : (

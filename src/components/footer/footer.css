@@ -1,0 +1,26 @@
+body,
+html {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.container {
+  flex: 1; /* Sprawia, że główna zawartość wypełnia przestrzeń między headerem a footerem */
+}
+
+.footer {
+  background-color: #343a40;
+  color: #ffffff;
+  text-align: center;
+  padding: 15px 0;
+  width: 100%;
+  margin-top: auto; /* Wymusza pozycjonowanie na dole */
+}

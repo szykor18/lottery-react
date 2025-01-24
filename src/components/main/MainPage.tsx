@@ -11,11 +11,12 @@ const MainPage: React.FC = () => {
   }, []);
 
   return (
-    <div className="main-content">
-      <div className="bg-image">
+    <div className="bg-image">
+      <div className="main-content text-center">
         <h1 className="display-1">Lottery Game</h1>
         <p className="lead">
-          Welcome to the official Lottery Game. Experience the thrill of winning from the comfort of your home. Play now or check your results!
+          Welcome to the official Lottery Game. Experience the thrill of winning
+          from the comfort of your home. Play now or check your results!
         </p>
 
         {errorMessage && (
@@ -24,7 +25,7 @@ const MainPage: React.FC = () => {
           </div>
         )}
 
-        <div className="d-grid gap-2 col-6 mx-auto">
+        <div className="button-group">
           <Link to="/play" className="btn btn-lg btn-success">
             Play Now
           </Link>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { ResultsService } from '../services/ResultsService';
+import { ResultsService } from '../../services/ResultsService';
 import './results.css';
+import Navbar from '../navbar/Navbar';
 
 const Results: React.FC = () => {
   const [uid, setUid] = useState<string>('');
@@ -14,7 +15,9 @@ const Results: React.FC = () => {
       setErrorMessage(null);
     } catch (error: any) {
       console.error('Error fetching results', error);
-      setErrorMessage(error.response?.data?.message || 'Failed to fetch results.');
+      setErrorMessage(
+        error.response?.data?.message || 'Failed to fetch results.'
+      );
       setResultMessage(null);
     }
   };
@@ -46,8 +49,12 @@ const Results: React.FC = () => {
       <p className="lead my-4">
         <small>Remember that draws are held every Saturday at 12:00 pm.</small>
       </p>
-      {resultMessage && <p className="alert alert-success mt-3">{resultMessage}</p>}
-      {errorMessage && <p className="alert alert-danger mt-3">{errorMessage}</p>}
+      {resultMessage && (
+        <p className="alert alert-success mt-3">{resultMessage}</p>
+      )}
+      {errorMessage && (
+        <p className="alert alert-danger mt-3">{errorMessage}</p>
+      )}
     </div>
   );
 };
