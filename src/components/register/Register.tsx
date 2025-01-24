@@ -26,7 +26,7 @@ const Register: React.FC = () => {
 
       // Czekamy 3 sekundy przed przekierowaniem
       setTimeout(() => {
-        navigate('/main');
+        navigate('/login');
       }, 3000);
     } catch (error: any) {
       // Wyświetlenie powiadomienia o błędzie
