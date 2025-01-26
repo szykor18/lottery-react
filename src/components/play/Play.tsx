@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
 import { GameService } from '../../services/GameService';
-import { toast, ToastContainer } from 'react-toastify'; // Importujemy Toastify
-import 'react-toastify/dist/ReactToastify.css'; // Importujemy style
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './play.css';
 import Navbar from '../navbar/Navbar';
 
 const Play: React.FC = () => {
-  const [numbers, setNumbers] = useState<(number | null)[]>(
-    Array(6).fill(null)
-  );
+  const [numbers, setNumbers] = useState<(number | null)[]>(Array(6).fill(null));
   const [ticket, setTicket] = useState<any>(null);
   const [message, setMessage] = useState<string>('');
 
@@ -19,7 +17,6 @@ const Play: React.FC = () => {
   };
 
   const submitNumbers = async () => {
-    // Sprawdzamy, czy wszystkie pola zostały wypełnione
     if (numbers.some((num) => num === null)) {
       toast.error('Please provide all 6 numbers!', {
         position: 'top-center',
@@ -33,17 +30,22 @@ const Play: React.FC = () => {
       setTicket(response.ticketDto);
       setMessage(response.message);
 
-      // Jeśli sukces, pokazujemy powiadomienie
-      toast.success('Numbers submitted successfully!', {
-        position: 'top-center',
-        autoClose: 2000,
-      });
-    } catch (error) {
+      if (response.message === 'SUCCESS') {
+        toast.success('Numbers submitted successfully!', {
+          position: 'top-center',
+          autoClose: 2000,
+        });
+      } else {
+        toast.error(response.message, {
+          position: 'top-center',
+          autoClose: 2000,
+        });
+      }
+    } catch (error: any) {
       console.error('Error submitting numbers', error);
       setMessage('Failed to submit numbers. Please try again.');
 
-      // Jeśli błąd, pokazujemy powiadomienie
-      toast.error('Failed to submit numbers. Please try again.', {
+      toast.error(error.response?.data?.message || 'Failed to submit numbers', {
         position: 'top-center',
         autoClose: 2000,
       });
@@ -119,7 +121,7 @@ const Play: React.FC = () => {
           </div>
         )}
       </div>
-      <ToastContainer /> {/* Kontener dla powiadomień */}
+      <ToastContainer />
     </div>
   );
 };

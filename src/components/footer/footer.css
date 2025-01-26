@@ -13,7 +13,7 @@ html {
 }
 
 .container {
-  flex: 1; /* Sprawia, że główna zawartość wypełnia przestrzeń między headerem a footerem */
+  flex: 1;
 }
 
 .footer {
@@ -22,5 +22,5 @@ html {
   text-align: center;
   padding: 15px 0;
   width: 100%;
-  margin-top: auto; /* Wymusza pozycjonowanie na dole */
+  margin-top: auto;
 }

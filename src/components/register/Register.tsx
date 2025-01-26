@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthService, User } from '../../services/AuthService';
 import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css'; // Import stylów
+import 'react-toastify/dist/ReactToastify.css';
 import '../login/login-register.css';
 
 const Register: React.FC = () => {
@@ -15,24 +15,21 @@ const Register: React.FC = () => {
     e.preventDefault();
     const user: User = { username, password };
     try {
-      // Rejestracja użytkownika
       await AuthService.register(user);
 
-      // Wyświetlenie powiadomienia o sukcesie
       toast.success('Registration successful! Redirecting...', {
-        autoClose: 3000, // Czas wyświetlania powiadomienia
-        position: 'top-center', // Pozycja powiadomienia
+        autoClose: 2000,
+        position: 'top-center',
       });
 
-      // Czekamy 3 sekundy przed przekierowaniem
       setTimeout(() => {
         navigate('/login');
-      }, 3000);
+      }, 2000);
     } catch (error: any) {
-      // Wyświetlenie powiadomienia o błędzie
-      toast.error(error.message || 'Registration failed', {
-        autoClose: 3000, // Czas wyświetlania powiadomienia
-        position: 'top-center', // Pozycja powiadomienia
+      console.log(error);
+      toast.error(error.response.data.message || 'Registration failed', {
+        autoClose: 2000,
+        position: 'top-center',
       });
     }
   };

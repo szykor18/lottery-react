@@ -9,12 +9,10 @@ form {
   transition: transform 0.3s ease-in-out;
 }
 
-/* Powiększenie formularza na hover */
 form:hover {
   transform: translateY(-5px);
 }
 
-/* Stylizacja przycisków */
 button {
   font-size: 1rem;
   padding: 12px 30px;
@@ -22,7 +20,6 @@ button {
   transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
-/* Styl przycisku 'Random Numbers' */
 button.btn-secondary {
   background-color: #6c757d;
   border: none;
@@ -33,7 +30,6 @@ button.btn-secondary:hover {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Styl przycisku 'Submit' */
 button.btn-primary {
   background-color: #007bff;
   border: none;
@@ -45,7 +41,6 @@ button.btn-primary:hover {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Zmienna szerokość kolumn formularza */
 .row {
   display: flex;
   justify-content: center;
@@ -53,7 +48,6 @@ button.btn-primary:hover {
   margin-bottom: 20px;
 }
 
-/* Stylizacja inputów (liczb do gry) */
 .col-2 input {
   width: 70px;
   text-align: center;
@@ -66,9 +60,9 @@ button.btn-primary:hover {
 .dupa {
   display: flex;
   justify-content: space-between;
-  gap: 20px; /* Ustawia odstęp między przyciskami */
-  width: 50%; /* Ustawia szerokość kontenera, żeby przyciski były rozstawione w równych odległościach */
-  margin: 0 auto; /* Centruje kontener */
+  gap: 20px;
+  width: 50%;
+  margin: 0 auto; 
 }
 
 .col-2 input:focus {
@@ -76,7 +70,6 @@ button.btn-primary:hover {
   outline: none;
 }
 
-/* Wskazówki w formularzu */
 .lead {
   font-size: 1.1rem;
   color: #555;
@@ -84,7 +77,6 @@ button.btn-primary:hover {
   text-align: center;
 }
 
-/* Styl dla biletów */
 .mt-3 h3 {
   color: #28a745;
   font-size: 1.75rem;
@@ -96,7 +88,6 @@ button.btn-primary:hover {
   color: #333;
 }
 
-/* Styl dla komunikatów */
 .alert {
   font-size: 1.1rem;
   padding: 15px;
@@ -115,7 +106,6 @@ button.btn-primary:hover {
   color: white;
 }
 
-/* Responsywność */
 @media (max-width: 768px) {
   form {
     padding: 20px;
